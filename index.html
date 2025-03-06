@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NepalMart</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar (Fixed at Top) -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">NepalMart</a>
+        <button id="nav-toggle" class="debug-toggle">☰</button>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Categories</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="cart.html" id="cart-toggle">Cart (<span id="cart-count">0</span>)</a></li>
+        </ul>
+    </nav>
+
+    <!-- Category Filter -->
+    <div class="category-filter">
+        <label for="category">Category:</label>
+        <select id="category" onchange="filterProducts()">
+            <option value="all">All</option>
+            <!--<option value="rice">Rice</option> -->
+            <option value="atta">Atta</option>
+            <option value="noodles">Noodles</option>
+            <option value="daal">Daal</option>
+            <option value="beans">Beans & Whole Grains</option>
+            <option value="seeds">Seeds</option>
+            <option value="seasonings">Seasonings</option>
+            <option value="pantry">Pantry</option>
+            <option value="oil">Oil</option>
+            <option value="achar">Achar</option>
+            <option value="tea">Tea & Coffee</option>
+            <option value="pots">Pots</option>
+            <option value="snacks">Snacks</option>
+            <option value="meats">Meats</option>
+            <option value="puja">Puja Items</option>
+        </select>
+        <input type="text" id="search" placeholder="Search...">
+    </div>
+
+    <!-- Header (No Phone Number) -->
+    <header class="header"></header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Meats Category -->
+        <section class="subcategory" data-category="meats">
+            <h2>Meats</h2>
+            <div class="product-grid">
+                <div class="product-card" data-name="Whole body Goat" data-price="9.2">
+                    <h3>Whole body Goat</h3>
+                    <p class="price">£9.2 / whole</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Goat Meat 1KG" data-price="11">
+                    <h3>Goat Meat 1KG</h3>
+                    <p class="price">£11 / kg</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Goat Bhutuwa 1KG" data-price="8.1">
+                    <h3>Goat Bhutuwa 1KG</h3>
+                    <p class="price">£8.1 / kg</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Giriraj Hen 1KG" data-price="4.6">
+                    <h3>Giriraj Hen 1KG</h3>
+                    <p class="price">£4.6 / kg</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Badel 1KG" data-price="12">
+                    <h3>Badel 1KG</h3>
+                    <p class="price">£12 / kg</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Buff boneless 1KG" data-price="14">
+                    <h3>Buff boneless 1KG</h3>
+                    <p class="price">£14 / kg</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+        <!-- Rice Category 
+        <section class="subcategory" data-category="rice">
+            <h2>Rice</h2>
+            <div class="product-grid">
+                <div class="product-card" data-name="Dawaat 20kg" data-price="41">
+                    <h3>Dawaat 20kg</h3>
+                    <p class="price">£41 / 20kg bag</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Trophy 10kg" data-price="21">
+                    <h3>Trophy 10kg</h3>
+                    <p class="price">£21 / 10kg bag</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Salaam 10kg" data-price="21">
+                    <h3>Salaam 10kg</h3>
+                    <p class="price">£21 / 10kg bag</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Akash 10kg" data-price="19">
+                    <h3>Akash 10kg</h3>
+                    <p class="price">£19 / 10kg bag</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </section> 
+
+        <!-- Atta Category 
+        <section class="subcategory" data-category="atta">
+            <h2>Atta</h2>
+            <div class="product-grid">
+                <div class="product-card" data-name="Elephant Medium 10kg" data-price="9.2">
+                    <h3>Elephant Medium 10kg</h3>
+                    <p class="price">£9.2 / 10kg bag</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Elephant Gold 5kg" data-price="6.9">
+                    <h3>Elephant Gold 5kg</h3>
+                    <p class="price">£6.9 / 5kg bag</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Noodles Category -->
+        <section class="subcategory" data-category="noodles">
+            <h2>Noodles</h2>
+            <div class="product-grid">
+                <div class="product-card" data-name="Wai Wai (C) Box" data-price="11">
+                    <h3>Wai Wai (C) Box</h3>
+                    <p class="price">£11 / box</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Wai Wai (V) Box" data-price="11">
+                    <h3>Wai Wai (V) Box</h3>
+                    <p class="price">£11 / box</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Shin Ramyan Box" data-price="18">
+                    <h3>Shin Ramyan Box</h3>
+                    <p class="price">£18 / box</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Shin Ramyan Cup" data-price="1.2">
+                    <h3>Shin Ramyan Cup</h3>
+                    <p class="price">£1.2 / cup</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Thukpa (Pckt)" data-price="2.1">
+                    <h3>Thukpa (Pckt)</h3>
+                    <p class="price">£2.1 / packet</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Daal Category -->
+        <section class="subcategory" data-category="daal">
+            <h2>Daal</h2>
+            <div class="product-grid">
+                <div class="product-card" data-name="Red Lentils 2kg" data-price="4.6">
+                    <h3>Red Lentils 2kg</h3>
+                    <p class="price">£4.6 / 2kg pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Red Lentils 1kg" data-price="2.4">
+                    <h3>Red Lentils 1kg</h3>
+                    <p class="price">£2.4 / 1kg pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Urid Dal 2kg" data-price="6">
+                    <h3>Urid Dal 2kg</h3>
+                    <p class="price">£6 / 2kg pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Urid Dal 1kg" data-price="3.4">
+                    <h3>Urid Dal 1kg</h3>
+                    <p class="price">£3.4 / 1kg pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Mustang Brown Dal 1kg" data-price="4.6">
+                    <h3>Mustang Brown Dal 1kg</h3>
+                    <p class="price">£4.6 / 1kg pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Mustang Mix Dak 1kg" data-price="4.6">
+                    <h3>Mustang Mix Dak 1kg</h3>
+                    <p class="price">£4.6 / 1kg pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Beans & Whole Grains Category -->
+        <section class="subcategory" data-category="beans">
+            <h2>Beans & Whole Grains</h2>
+            <div class="product-grid">
+                <div class="product-card" data-name="Whole Green peas 2kg" data-price="4.8">
+                    <h3>Whole Green peas 2kg</h3>
+                    <p class="price">£4.8 / 2kg pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Whole Yellow peas 2kg" data-price="4.6">
+                    <h3>Whole Yellow peas 2kg</h3>
+                    <p class="price">£4.6 / 2kg pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Small peas 500g" data-price="2.5">
+                    <h3>Small peas 500g</h3>
+                    <p class="price">£2.5 / 500g pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="White Soya beans 1kg" data-price="4.6">
+                    <h3>White Soya beans 1kg</h3>
+                    <p class="price">£4.6 / 1kg pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seeds Category -->
+        <section class="subcategory" data-category="seeds">
+            <h2>Seeds</h2>
+            <div class="product-grid">
+                <div class="product-card" data-name="Perilla seeds 200g" data-price="3.3">
+                    <h3>Perilla seeds 200g</h3>
+                    <p class="price">£3.3 / 200g pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Methi seeds 400g" data-price="2.3">
+                    <h3>Methi seeds 400g</h3>
+                    <p class="price">£2.3 / 400g pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Whole jeera 400g" data-price="5.8">
+                    <h3>Whole jeera 400g</h3>
+                    <p class="price">£5.8 / 400g pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Whole Coriander 100g" data-price="1.5">
+                    <h3>Whole Coriander 100g</h3>
+                    <p class="price">£1.5 / 100g pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Fennel seeds 300g" data-price="2.5">
+                    <h3>Fennel seeds 300g</h3>
+                    <p class="price">£2.5 / 300g pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Fennel seeds 100g" data-price="1.2">
+                    <h3>Fennel seeds 100g</h3>
+                    <p class="price">£1.2 / 100g pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Brown Sesame 500g" data-price="3.7">
+                    <h3>Brown Sesame 500g</h3>
+                    <p class="price">£3.7 / 500g pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Black Pepper Whole 100g" data-price="1.2">
+                    <h3>Black Pepper Whole 100g</h3>
+                    <p class="price">£1.2 / 100g pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Whole cloves 50g" data-price="1.8">
+                    <h3>Whole cloves 50g</h3>
+                    <p class="price">£1.8 / 50g pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Ajwain seeds 100g" data-price="1.4">
+                    <h3>Ajwain seeds 100g</h3>
+                    <p class="price">£1.4 / 100g pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Cardamoms 50g" data-price="2.3">
+                    <h3>Cardamoms 50g</h3>
+                    <p class="price">£2.3 / 50g pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Mustard seeds 100g" data-price="1.2">
+                    <h3>Mustard seeds 100g</h3>
+                    <p class="price">£1.2 / 100g pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Halim seeds 100g" data-price="1.4">
+                    <h3>Halim seeds 100g</h3>
+                    <p class="price">£1.4 / 100g pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Sichuam Pepper 100g" data-price="3.4">
+                    <h3>Sichuam Pepper 100g</h3>
+                    <p class="price">£3.4 / 100g pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seasonings Category -->
+        <section class="subcategory" data-category="seasonings">
+            <h2>Seasonings</h2>
+            <div class="product-grid">
+                <div class="product-card" data-name="Jimbu 30g" data-price="2.3">
+                    <h3>Jimbu 30g</h3>
+                    <p class="price">£2.3 / 30g pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Rock salt Whole 100g" data-price="3.4">
+                    <h3>Rock salt Whole 100g</h3>
+                    <p class="price">£3.4 / 100g pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Rock salt Powder 100g" data-price="2.9">
+                    <h3>Rock salt Powder 100g</h3>
+                    <p class="price">£2.9 / 100g pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Black salt Powder 100g" data-price="2.3">
+                    <h3>Black salt Powder 100g</h3>
+                    <p class="price">£2.3 / 100g pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Cinnamon Sticks 300g" data-price="5.2">
+                    <h3>Cinnamon Sticks 300g</h3>
+                    <p class="price">£5.2 / 300g pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Ground Coriander 400g" data-price="2.4">
+                    <h3>Ground Coriander 400g</h3>
+                    <p class="price">£2.4 / 400g pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Turmeric Powder 100g" data-price="1.2">
+                    <h3>Turmeric Powder 100g</h3>
+                    <p class="price">£1.2 / 100g pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pantry Category -->
+        <section class="subcategory" data-category="pantry">
+            <h2>Pantry</h2>
+            <div class="product-grid">
+                <div class="product-card" data-name="Puffed Rice 250g" data-price="3.2">
+                    <h3>Puffed Rice 250g</h3>
+                    <p class="price">£3.2 / 250g pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Jhiling Pekt" data-price="3">
+                    <h3>Jhiling Pekt</h3>
+                    <p class="price">£3 / pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="White Taichin 700g" data-price="3.5">
+                    <h3>White Taichin 700g</h3>
+                    <p class="price">£3.5 / 700g pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Pawa 1kg" data-price="3">
+                    <h3>Pawa 1kg</h3>
+                    <p class="price">£3 / 1kg pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Papad Pckt" data-price="1.4">
+                    <h3>Papad Pckt</h3>
+                    <p class="price">£1.4 / packet</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Jaggery Goor 500g" data-price="1.8">
+                    <h3>Jaggery Goor 500g</h3>
+                    <p class="price">£1.8 / 500g pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Jaggery Goor 450g" data-price="2.3">
+                    <h3>Jaggery Goor 450g</h3>
+                    <p class="price">£2.3 / 450g pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Oil Category 
+        <section class="subcategory" data-category="oil">
+            <h2>Oil</h2>
+            <div class="product-grid">
+                <div class="product-card" data-name="KTC Sunflower oil" data-price="8.1">
+                    <h3>KTC Sunflower oil</h3>
+                    <p class="price">£8.1 / bottle</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="KTC Vegetable oil" data-price="7.9">
+                    <h3>KTC Vegetable oil</h3>
+                    <p class="price">£7.9 / bottle</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achar Category -->
+        <section class="subcategory" data-category="achar">
+            <h2>Achar</h2>
+            <div class="product-grid">
+                <div class="product-card" data-name="Aama ko Dalla Paste" data-price="5.8">
+                    <h3>Aama ko Dalla Paste</h3>
+                    <p class="price">£5.8 / jar</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Aama ko Bamboo shoots" data-price="5.8">
+                    <h3>Aama ko Bamboo shoots</h3>
+                    <p class="price">£5.8 / jar</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Aama ko Radish pickle" data-price="5.8">
+                    <h3>Aama ko Radish pickle</h3>
+                    <p class="price">£5.8 / jar</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Fudco Hot Mango" data-price="2.3">
+                    <h3>Fudco Hot Mango</h3>
+                    <p class="price">£2.3 / jar</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tea & Coffee Category -->
+        <section class="subcategory" data-category="tea">
+            <h2>Tea & Coffee</h2>
+            <div class="product-grid">
+                <div class="product-card" data-name="Royal Matka tea 500g" data-price="6.9">
+                    <h3>Royal Matka tea 500g</h3>
+                    <p class="price">£6.9 / 500g pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Royal Matka tea 200g" data-price="3.7">
+                    <h3>Royal Matka tea 200g</h3>
+                    <p class="price">£3.7 / 200g pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Nayak tea 500g" data-price="6.3">
+                    <h3>Nayak tea 500g</h3>
+                    <p class="price">£6.3 / 500g pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Nayak tea 200g" data-price="3.4">
+                    <h3>Nayak tea 200g</h3>
+                    <p class="price">£3.4 / 200g pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Pearl Green tea" data-price="5.8">
+                    <h3>Pearl Green tea</h3>
+                    <p class="price">£5.8 / pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Pearl Black tea" data-price="5.8">
+                    <h3>Pearl Black tea</h3>
+                    <p class="price">£5.8 / pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Mukti G/M/C tea" data-price="4">
+                    <h3>Mukti G/M/C tea</h3>
+                    <p class="price">£4 / pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Himalayan Black" data-price="6.3">
+                    <h3>Himalayan Black</h3>
+                    <p class="price">£6.3 / pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Himalayan Green" data-price="6.3">
+                    <h3>Himalayan Green</h3>
+                    <p class="price">£6.3 / pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Good Fresh" data-price="6.9">
+                    <h3>Good Fresh</h3>
+                    <p class="price">£6.9 / pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- Pots Category -->
+        <section class="subcategory" data-category="pots">
+            <h2>Pots</h2>
+            <div class="product-grid">
+                <div class="product-card" data-name="Hawking Pressure ckr" data-price="40">
+                    <h3>Hawking Pressure ckr</h3>
+                    <p class="price">£40 / cooker</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Daimond Pressure ckr" data-price="48">
+                    <h3>Daimond Pressure ckr</h3>
+                    <p class="price">£48 / cooker</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Momo Pot Medium" data-price="31">
+                    <h3>Momo Pot Medium</h3>
+                    <p class="price">£31 / pot</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Snacks Category -->
+        <section class="subcategory" data-category="snacks">
+            <h2>Snacks</h2>
+            <div class="product-grid">
+                <!--<div class="product-card" data-name="Parle-G" data-price="2.9">
+                    <h3>Parle-G</h3>
+                    <p class="price">£2.9 / pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Fox's Crinckle Crunch" data-price="1.3">
+                    <h3>Fox's Crinckle Crunch</h3>
+                    <p class="price">£1.3 / pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Jammie Dodgers" data-price="1">
+                    <h3>Jammie Dodgers</h3>
+                    <p class="price">£1 / pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Salted Caramel Fingers" data-price="1.3">
+                    <h3>Salted Caramel Fingers</h3>
+                    <p class="price">£1.3 / pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="White Chocolate Fingers" data-price="1.3">
+                    <h3>White Chocolate Fingers</h3>
+                    <p class="price">£1.3 / pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Bahlsen Butter Leaves" data-price="1.2">
+                    <h3>Bahlsen Butter Leaves</h3>
+                    <p class="price">£1.2 / pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Walkers 20 Pack" data-price="5.8">
+                    <h3>Walkers 20 Pack</h3>
+                    <p class="price">£5.8 / pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div> -->
+                <div class="product-card" data-name="Ratnapark Paun" data-price="1.7">
+                    <h3>Ratnapark Paun</h3>
+                    <p class="price">£1.7 / pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-name="Hajmola" data-price="1.7">
+                    <h3>Hajmola</h3>
+                    <p class="price">£1.7 / pack</p>
+                    <div class="quantity">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <!-- Puja Items Category -->
+        <section class="subcategory" data-category="puja">
+            <h2>Puja Items</h2>
+            <p>Please call to enquire about puja items and nepali clothing.</p>
+        </section>
+    </div>
+
+    <!-- Mobile Cart Button -->
+    <button class="mobile-cart-btn" id="mobile-cart-toggle">Cart (<span id="mobile-cart-count">0</span>)</button>
+
+    <!-- Notification -->
+    <div id="cart-notification" class="cart-notification">Item added to cart!</div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 NepalMart. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
