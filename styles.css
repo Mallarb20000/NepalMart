@@ -26,6 +26,32 @@ body {
     flex-direction: column;
 }
 
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Banner Styles */
+.banner {
+    background-color: #f8d7da; /* Light red background for visibility */
+    color: #721c24; /* Dark red text for contrast */
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensures it stays above other content */
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Adjust navbar to account for fixed banner */
+
+
 /* Navbar */
 .navbar {
     background: var(--primary);
@@ -37,6 +63,8 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     width: 100%;
     z-index: 1000;
+    position: fixed;
+    top: 40px; /* Height of the banner */
 }
 .logo {
     font-size: 1.5rem;
